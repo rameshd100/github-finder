@@ -1,18 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
+import Spinner from "../layout/Spinner";
 
 import "./Users.css";
 import UserItem from "./Useritem";
 
-class Users extends Component {
-  render() {
+const Users = ({ users, loading }) => {
+  if (loading) {
+    return <Spinner />;
+  } else {
     return (
       <div className="users">
-        {this.props.users.map((user) => (
+        {users.map((user) => (
           <UserItem key={user.id} user={user} />
         ))}
       </div>
     );
   }
-}
+};
 
 export default Users;
