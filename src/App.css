@@ -1,0 +1,9 @@
+body {
+  background: #eef2f7;
+  margin: auto;
+  box-sizing: border-box;
+}
+.app {
+  margin: auto;
+  width: 70vw;
+}

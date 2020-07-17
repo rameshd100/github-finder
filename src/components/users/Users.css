@@ -1,0 +1,6 @@
+.users {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: auto;
+  grid-row-gap: 2rem;
+}
