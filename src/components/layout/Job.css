@@ -1,0 +1,9 @@
+.job-card {
+  width: 30vw;
+}
+
+.job-des {
+  height: 2rem;
+  padding: 2px; /* adjust to taste */
+  overflow: hidden;
+}

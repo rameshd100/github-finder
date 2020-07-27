@@ -1,4 +1,21 @@
 .navbar {
   height: 5rem;
-  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar a {
+  text-decoration: none;
+}
+
+.nav-links {
+  margin-left: 5rem;
+}
+
+.nav-links li {
+  list-style-type: none;
+}
+.nav-links a {
+  font-size: 1.5rem;
+  margin-left: 1rem;
 }

@@ -7,20 +7,18 @@ import "./Navbar.css";
 const Navbar = ({ title }) => {
   return (
     <nav className="navbar">
-      <Link to="/">
-        <h1>
-          <i class="fab fa-github"></i>
-          {title}
-        </h1>
-      </Link>
-      <ul>
-        <li>
-          <Link to="/Userpage">Users</Link>
-        </li>
-        <li>
-          <Link to="/Jobs">Jobs</Link>
-        </li>
-      </ul>
+      <div className="logo">
+        <Link to="/">
+          <h1>
+            <i class="fab fa-github"></i>
+            {title}
+          </h1>
+        </Link>
+      </div>
+      <div className="nav-links">
+        <Link to="/Userpage">Users</Link>
+        <Link to="/Jobs">Jobs</Link>
+      </div>
     </nav>
   );
 };
