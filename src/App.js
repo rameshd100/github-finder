@@ -1,41 +1,36 @@
 import React from "react";
-import axios from "axios";
-
-import Navbar from "./components/layout/Navbar";
-import Users from "./components/users/Users";
-import Search from "./components/users/Search";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
+
+//Components
+import Navbar from "./components/layout/Navbar";
+import Home from "./components/layout/Home";
+import Userpage from "./components/users/User-page";
+import Jobs from "./components/layout/Jobs";
 
 class App extends React.Component {
   state = {
-    users: [],
-    loading: false,
-  };
-
-  // async componentDidMount() {
-  //   this.setState({ loading: true });
-
-  //   const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
-
-  //   this.setState({ users: res.data, loading: false });
-  // }
-
-  // Search Github users
-  searchUsers = async (text) => {
-    const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
-
-    this.setState({ users: res.data.items, loading: false });
+    // users: [],
+    // loading: false,
   };
 
   render() {
     return (
       <div className="app">
-        <Navbar title="Github Finder" />
-        <Search searchUsers={this.searchUsers} />
-        <div className="users-container">
-          <Users loading={this.state.loading} users={this.state.users} />
-        </div>
+        <Router>
+          <Navbar title="Github Finder" />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/userpage">
+              <Userpage />
+            </Route>
+            <Route exact path="/Jobs">
+              <Jobs />
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   }

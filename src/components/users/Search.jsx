@@ -8,6 +8,13 @@ class Search extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+
+    if (this.state.text === "") {
+      this.props.setAlert("You haven't enter anything, Please enter something");
+    } else {
+      this.props.searchUsers(this.state.text);
+    }
+
     this.props.searchUsers(this.state.text);
     this.setState({ text: "" }); // Setting form empty after search
   };
@@ -23,6 +30,11 @@ class Search extends Component {
           <input type="text" name="text" placeholder="Search Users" className="search-field" value={this.state.text} onChange={this.onChange}></input>
           <input type="submit" value="SEARCH" className="search-input"></input>
         </form>
+        {this.props.showClear && (
+          <button className="clear-button" onClick={this.props.clearUsers}>
+            Clear
+          </button>
+        )}
       </div>
     );
   }
